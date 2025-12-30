@@ -52,11 +52,11 @@ function App() {
   }
 
   return (
-    <Box sx={{bgcolor: '#eeeeee'}}>
+    <Box sx={{bgcolor: '#eeeeee', minHeight: '100vh'}}>
       <CssBaseline />
       <NavBar openForm={handleOpenForm} />
       <Container maxWidth="xl" sx={{ mt: 3 }}>
-        {!activities || isPending ? (<Typography variant="h4">Loading activities...</Typography>) : (
+        {!activities || isPending ? (<Typography variant="h5">Loading activities...</Typography>) : (
         <ActivityDashboard
           activities={activities}
           selectActivity={handleSelectActivity}
