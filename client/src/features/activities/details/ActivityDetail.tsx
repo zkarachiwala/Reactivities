@@ -28,7 +28,7 @@ export default function ActivityDetail() {
                 {activity.description}
             </Typography>
             <CardActions>
-                <Button color="primary" component={Link} to={`/createActivity/${activity.id}`}>Edit</Button>
+                <Button color="primary" component={Link} to={`/manage/${activity.id}`}>Edit</Button>
                 <Button color="inherit" onClick={() => navigate('/activities')}>Cancel</Button>
             </CardActions>
         </CardContent>
