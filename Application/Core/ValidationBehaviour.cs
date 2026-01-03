@@ -8,7 +8,7 @@ public class ValidationBehaviour<TRequest, TResponse>(IValidator<TRequest>? vali
 {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        if (validator == null) return await next();
+        if (validator == null) return await next(cancellationToken);
 
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
@@ -17,6 +17,6 @@ public class ValidationBehaviour<TRequest, TResponse>(IValidator<TRequest>? vali
             throw new ValidationException(validationResult.Errors);
         }
 
-        return await next();
+        return await next(cancellationToken);
     }
 }
