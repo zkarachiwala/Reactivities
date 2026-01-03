@@ -17,7 +17,6 @@
     <Folder Include="Activities\DTOs\" />
     <Folder Include="Activities\Queries\" />
     <Folder Include="Activities\Validators\" />
-    <Folder Include="Core\" />
   </ItemGroup>
 
   <ItemGroup>
