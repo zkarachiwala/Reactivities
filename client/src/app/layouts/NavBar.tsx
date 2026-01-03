@@ -55,7 +55,7 @@ export default function NavBar() {
               <LinearProgress
                 color="secondary"
                 sx={{
-                  position: "absolute",
+                  //                  position: "absolute",
                   top: 0,
                   left: 0,
                   right: 0,
