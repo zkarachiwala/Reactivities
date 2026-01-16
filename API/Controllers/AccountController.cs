@@ -9,6 +9,7 @@ namespace API.Controllers;
 
 public class AccountController(SignInManager<User> signInManager) : BaseApiController
 {
+    [AllowAnonymous]
     [HttpPost("register")]
     public async Task<ActionResult> RegisterUser(RegisterDto registerDto)
     {
@@ -23,7 +24,7 @@ public class AccountController(SignInManager<User> signInManager) : BaseApiContr
 
         if (result.Succeeded) return Ok();
 
-        foreach(var error in result.Errors)
+        foreach (var error in result.Errors)
         {
             ModelState.AddModelError(error.Code, error.Description);
         }

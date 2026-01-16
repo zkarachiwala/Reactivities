@@ -1,13 +1,5 @@
 import { z } from 'zod';
-
-const requiredString = (fieldName: string) =>
-    z.string({ error: `${fieldName} cannot be empty.`}); //.min(1, { message: `${fieldName} cannot be empty.` });
-
-// const requriedDateTime = (fieldName: string) => z.iso.datetime(
-//     { error: (issue) => issue.input === undefined 
-//         ? `${fieldName} cannot be empty.` 
-//         : `${fieldName} is a valid date/time` 
-// });
+import { requiredString } from '../util/util';
 
 export const activitySchema = z.object({
     title: requiredString('Title'),
