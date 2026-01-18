@@ -6,5 +6,24 @@ namespace Persistence;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<User>(options)
 {
-    public DbSet<Activity> Activities { get; set; }
+    public required DbSet<Activity> Activities { get; set; }
+    public required DbSet<ActivityAttendee> ActivityAttendees { get; set; }
+
+    override protected void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<ActivityAttendee>(x =>
+        {
+            x.HasKey(aa => new { aa.ActivityId, aa.UserId });
+
+            x.HasOne(aa => aa.User)
+             .WithMany(u => u.Activities)
+             .HasForeignKey(aa => aa.UserId);
+
+            x.HasOne(aa => aa.Activity)
+             .WithMany(a => a.Attendees)
+             .HasForeignKey(aa => aa.ActivityId);
+        });
+    }
 }
