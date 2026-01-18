@@ -1,6 +1,7 @@
 using Application.Core;
 using Domain;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Activities.Queries;
@@ -16,7 +17,11 @@ public class GetActivityDetails
     {
         public async Task<Result<Activity>> Handle(Query request, CancellationToken cancellationToken)
         {
-            var activity = await context.Activities.FindAsync([request.Id, cancellationToken]);
+            var activity = await context.Activities
+                .Include(x => x.Attendees)
+                .ThenInclude(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+            //.FindAsync([request.Id, cancellationToken]);
 
             if (activity == null) return Result<Activity>.Failure("Activity not found", 404);
 
