@@ -26,7 +26,7 @@ export default function ActivityDetailsSidebar() {
                                 <ListItemAvatar>
                                     <Avatar
                                         alt={'attendee name'}
-                                        src={'/assets/user.png'}
+                                        src={'/images/user.png'}
                                     />
                                 </ListItemAvatar>
                                 <ListItemText>

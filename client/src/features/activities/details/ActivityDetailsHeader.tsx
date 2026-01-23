@@ -24,7 +24,7 @@ export default function ActivityDetailsHeader({activity}: Props) {
         <CardMedia
             component="img"
             height="300"
-            image={`/assets/categoryImages/${activity.category}.jpg`}
+            image={`/images/categoryImages/${activity.category}.jpg`}
             alt={'travel image'}
         />
         <Box sx={{
