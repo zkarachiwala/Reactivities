@@ -18,8 +18,6 @@
     <Folder Include="Activities\Queries\" />
     <Folder Include="Activities\Validators\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Profiles\" />
-    <Folder Include="Profiles\DTOs\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +27,10 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     
     <PackageReference Include="MediatR" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
