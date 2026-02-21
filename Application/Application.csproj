@@ -18,6 +18,7 @@
     <Folder Include="Activities\Queries\" />
     <Folder Include="Activities\Validators\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Profiles\Commands\" />
   </ItemGroup>
 
   <ItemGroup>
