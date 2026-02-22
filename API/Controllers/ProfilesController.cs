@@ -37,4 +37,12 @@ public class ProfilesController : BaseApiController
         var result = await Mediator.Send(command);
         return HandleResult(result);
     }
+
+    [HttpGet("{userId}")]
+    public async Task<IActionResult> GetProfile(string userId)
+    {
+        var query = new GetProfile.Query { UserId = userId };
+        var result = await Mediator.Send(query);
+        return HandleResult(result);
+    }
 }
