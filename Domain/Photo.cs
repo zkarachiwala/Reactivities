@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Domain;
 
 public class Photo
@@ -10,5 +12,7 @@ public class Photo
 
     // nav properties
     public required string UserId { get; set; }
+
+    [JsonIgnore]
     public User User { get; set; } = null!;
 }
